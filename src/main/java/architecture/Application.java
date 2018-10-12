@@ -17,7 +17,7 @@ public class Application {
         MovieService movieService = new MovieService(new DbMovieRepository());
         CustomerExperience customerExperience = new CustomerExperience();
 
-        Rental rental1 = createRental(rentalDate, returnDate,2, movieService, "The Hobbit", rentalsService, customerExperience);
+        Rental rental1 = createRental(rentalDate, returnDate,2, movieService, "The Hobbit", rentalsService);
         System.out.println(rental1);
 
         rentalsService.save(rental1);
@@ -30,9 +30,9 @@ public class Application {
     }
 
 //the thing below will not be used once presentation is created (roi said)
-    private static Rental createRental( LocalDate rentalDate, LocalDate returnDate, int customerId, MovieService movieService, String title, RentalsService rentalsService, CustomerExperience customerExperience) {
+    private static Rental createRental( LocalDate rentalDate, LocalDate returnDate, int customerId, MovieService movieService, String title, RentalsService rentalsService) {
         Rental rental = new Rental();
-        rental.setTotalPrice(customerExperience.calculateTotalPrice(movieService.getMovieByTitle(title).getPricePerDay(), rental.getTotalDaysRented()));
+        rental.setTotalPrice(rentalsService.calculateTotalPrice(movieService.getMovieByTitle(title).getPricePerDay(), rental.getTotalDaysRented()));
         rental.setCustomerID(customerId);
         //rental.setId(id);
         rental.setMovieID(movieService.getMovieByTitle(title).getMovie_ID());
