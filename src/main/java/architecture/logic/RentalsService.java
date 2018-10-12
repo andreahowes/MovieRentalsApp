@@ -23,8 +23,8 @@ public class RentalsService {
         return rentalRepository.calculateTotalDaysRented(rental);
     }
 
-    public int calculateTotalPrice(int pricePerDay, int totalDays) {
-        return totalDays * pricePerDay;
+    public int calculateTotalPrice(int price, int days) {
+        return price*days;
     }
 
 }

@@ -15,6 +15,7 @@ public class MovieService {
         movieRepository.save(movie);
     }
     public List<Movie> getAllMovies(){
+        System.out.println(movieRepository.getAllMovies());
         return movieRepository.getAllMovies();
     }
     public Movie getMovieByTitle(String title){

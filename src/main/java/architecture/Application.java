@@ -11,21 +11,28 @@ import java.time.LocalDate;
 
 public class Application {
     public static void main(String[] args) {
+        CustomerExperience customerExperience = new CustomerExperience();
+        customerExperience.startMenu();
+
+
+
+
+
+
+
         LocalDate rentalDate = LocalDate.of(2020, 11, 24);
         LocalDate returnDate = LocalDate.of(2020, 11, 25);
-        RentalsService rentalsService = new RentalsService(new DbRentalRepository());
-        MovieService movieService = new MovieService(new DbMovieRepository());
-        CustomerExperience customerExperience = new CustomerExperience();
+        //RentalsService rentalsService = new RentalsService(new DbRentalRepository());
+        //MovieService movieService = new MovieService(new DbMovieRepository());
+        //Rental rental1 = createRental(rentalDate, returnDate,2, movieService, "The Hobbit", rentalsService);
+        //System.out.println(rental1);
 
-        Rental rental1 = createRental(rentalDate, returnDate,2, movieService, "The Hobbit", rentalsService);
-        System.out.println(rental1);
+        //rentalsService.save(rental1);
+        //System.out.println(rentalsService.getAllRentals());
 
-        rentalsService.save(rental1);
-        System.out.println(rentalsService.getAllRentals());
-
-        Movie movie1 = createMovie("Awesome Movie 4", "The second best actor", 2010, "the best genre", 1);
-        movieService.save(movie1);
-        System.out.println(movieService.getAllMovies());
+        //Movie movie1 = createMovie("Awesome Movie 4", "The second best actor", 2010, "the best genre", 1);
+        //movieService.save(movie1);
+        //System.out.println(movieService.getAllMovies());
 
     }
 
